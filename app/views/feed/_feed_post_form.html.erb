@@ -1,0 +1,7 @@
+<%= form_for @post, url: user_posts_path(id: 1, feed_id: 1) do |f| %>
+  <div>
+    <%= label_tag :image, 'Add image' %><br />
+    <%= f.file_field :image %>
+  </div>
+<%= f.submit "Create post" %>
+<% end %>

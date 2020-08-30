@@ -1,0 +1,29 @@
+  <%= form_tag users_path, method: :post do %>
+    <div>
+        <%= label_tag :email, 'Email', class: '' %><br />
+        <%= text_field_tag :email,'', class: '', required: true, autofocus: true %>
+      </div>
+
+    <div>
+        <%= label_tag :password, 'Password', class: '' %><br />
+        <%= password_field_tag :password,'' , class: '', required: true %>
+      </div>
+
+      <div>
+          <%= label_tag :first_name, 'First Name', class: '' %><br />
+          <%= text_field_tag :first_name,'', class: '', required: true, autofocus: true %>
+        </div>
+
+    <div>
+      <%= label_tag :last_name, 'Last Name', class: '' %><br />
+      <%= text_field_tag :last_name,'', class: '', required: true, autofocus: true %>
+    </div>
+
+    <div>
+        <%= link_to 'Log In', user_sessions_path %>
+        <%= button_tag do %>
+          Create Account
+        <% end %>
+      </div>
+  <% end %>
+

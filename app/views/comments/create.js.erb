@@ -1,0 +1,4 @@
+$("#post-comments<%= @post.id %>").html(
+  "<%= j render 'shared/post_comments', 
+  post_comments: @post_comments %>"
+);

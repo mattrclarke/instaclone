@@ -1,0 +1,34 @@
+<%= form_for @post, url: user_posts_path(id: current_user.id, feed_id: current_user.feed.id) do |f| %>
+  <div>
+    <%= label_tag :image, 'Add image' %><br />
+    <%= f.file_field :image %>
+  </div>
+<%= f.submit "Create post" %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <div>
+    <div>
+      <%= image_tag(post.image) if post.image %>
+      <ruby>
+        <rt><%= post[:first_name] %> <%= post[:last_name] %></rt>
+      </ruby>
+    </div>
+  
+  <div id="post-comments">
+    <%= render "shared/post_comments", post_comments: post.comments %>
+  </div>
+    
+    <%= form_for @comment, url: user_comments_path(user_id: current_user.id, post_id: post.id), html: {id: "post-#{post.id}"}, format: :js, authenticity_token: true, remote: true do |f| %>
+      <div>
+        <%= label_tag :body, 'Comment' %><br />
+        <%= f.text_area :body %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :post_id, value: post.id %>
+      </div>
+    <%= f.submit "Post" %>
+    <% end %>
+    
+  </div>
+<% end %>
+

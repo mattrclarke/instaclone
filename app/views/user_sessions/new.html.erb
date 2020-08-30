@@ -1,0 +1,21 @@
+<% if @failed_login %>
+  <p> Email/Password is incorrect </p>
+<% end %>
+<%= form_tag user_sessions_path, method: :post do %>
+  <div>
+      <%= label_tag :email, 'Email'%><br />
+      <%= text_field_tag :email,'', class: '', required: true, autofocus: true %>
+  </div>
+  <div>
+    <%= label_tag :password, 'Password', class: '' %><br />
+    <%= password_field_tag :password,'' , class: '', required: true %>
+  </div>
+  <div>
+    <div>
+      <%= link_to 'Sign up', new_user_path %>
+      <%= button_tag do %>
+        Login
+      <% end %>
+    </div>
+  </div>
+<% end %>
