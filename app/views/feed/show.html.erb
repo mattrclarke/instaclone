@@ -16,7 +16,7 @@
     </div>
   
   <div id="post-comments">
-    <%= render "shared/post_comments", post_comments: post.comments %>
+    <%= render "shared/post_comments", post_comments: post.comments, user_id: current_user.id, feed_id: params[:id] %>
   </div>
     
     <%= form_for @comment, url: user_comments_path(user_id: current_user.id, post_id: post.id), html: {id: "post-#{post.id}"}, format: :js, authenticity_token: true, remote: true do |f| %>

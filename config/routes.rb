@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:new, :create] do
-    resources :comments, only: [:create]
+    resources :comments
     resources :feed, only: [:show]
     resources :profile, only: [:show, :index, :edit, :update]
     resources :posts, only: [:create]
