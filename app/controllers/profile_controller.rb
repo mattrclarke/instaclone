@@ -1,10 +1,7 @@
 class ProfileController < ApplicationController
 
   def show
-    @facade = ProfileShowFacade.new
     @profile = Profile.find(params[:id])
-    @posts = Post.all
-    @post = Post.new
   end
 
   private
